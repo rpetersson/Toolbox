@@ -1,0 +1,5 @@
+VMConnection
+| where  Computer has_any ('STBUAP530', 'STBUAP531', 'STBUAP533','STBUAP532','STBAP822','STBAP823','STBAP820','STBAP824','STBAP821','STBAP827','STBAP825','STBAP826','STBAP828','STBAP829','STBAP865','STBAP852','STBUAP793FP','STBAP868','STBUAP550','alp-stb-083fp','alp-stb-131fp') |
+| where ProcessName !in ("oneagentloganalytics", "oneagentos", "winlogbeat")                                                                                                                                                                                                           |
+| where SourceIp !in ("127.0.0.1")                                                                                                                                                                                                                                                     |
+| summarize by Computer, DestinationIp, DestinationPort,ProcessName,Protocol, Direction,RemoteDnsQuestions                                                                                                                                                                             |
