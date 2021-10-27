@@ -1,5 +1,6 @@
 VMConnection
 | where  Computer has_any (//insert assets) |
-| where ProcessName !in ("oneagentloganalytics", "oneagentos", "winlogbeat")                                                                                                                                                                                                           |
-| where SourceIp !in ("127.0.0.1")                                                                                                                                                                                                                                                     |
-| summarize by Computer, DestinationIp, DestinationPort,ProcessName,Protocol, Direction,RemoteDnsQuestions, ConnectionId                                                                                                                                                                           |
+| where ProcessName !in ("oneagentloganalytics", "oneagentos", "winlogbeat")                                                                                                                                                                                                           
+| where SourceIp !in ("127.0.0.1")                                                                                                                                                                                                                                                     
+| summarize by Computer, DestinationIp, DestinationPort,ProcessName,Protocol, Direction,RemoteDnsQuestions, ConnectionId
+
