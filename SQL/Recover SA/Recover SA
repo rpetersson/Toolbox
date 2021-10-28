@@ -1,0 +1,24 @@
+Configure SQL Single-User Mode
+- Open SQL Server Configuration Manager 
+- Stop the SQL Server Instance you need to recover the SA password 
+- Open the properties on the SQL Server Instance and click on the Advanced tab 
+- Change the Startup parameter by adding -m; at the begging of the line and click OK 
+- Start the SQL Service Instance
+
+2510d62a20959b98c82936cc186e6a481a18d5835eabc831d14169697c58cbc9_startup_big
+2.	
+Use SQLCMD to add a Sysadmin Account
+- Open the command prompt 
+- Run sqlcmd and press enter 
+- Run a Transact-SQL (Below) command to add an existing account or a new account to the sysadmin server role. Replace DOMAIN\Username with the account you want to add. *NOTE: if you receive errors, I’ve listed some common issues at the end of this article.
+
+EXEC sp_addsrvrolemember 'DOMAIN\Username', 'sysadmin'; 
+GO
+
+3.	
+Un-configer SQL Single-User Mode
+- Open SQL Server Configuration Manager 
+- Stop the SQL Server Instance 
+- Open the properties on the SQL Server Instance and click on the Advanced tab 
+- Change the Startup parameter by removing the -m; at the begging of the line and click OK 
+- Start the SQL Service Instance
